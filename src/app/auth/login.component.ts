@@ -2,15 +2,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
-// import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { environment } from '@env/environment';
 import { Logger, untilDestroyed } from '@core';
 import { AuthenticationService } from './authentication.service';
 
 import { UserModel } from 'src/app/models/user.model';
-import { ToastAlertsService } from 'src/app/services/toast-alerts.service';
 import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
+
 
 const log = new Logger('Login');
 
@@ -40,7 +39,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    private alertToastService: ToastAlertsService,
     private router: Router,
     private authFire: AuthFirebaseService
   ) {
@@ -66,12 +64,12 @@ export class LoginComponent implements OnInit, OnDestroy {
         console.log(messageServ);
 
         if (messageServ == 'EMAIL_NOT_FOUND') {
-          this.alertToastService.showErrorEmail();
+          alert('Revisa el correo ingresado')
           return;
         }
 
         if (messageServ == 'INVALID_PASSWORD') {
-          this.alertToastService.showErrorPassword();
+          alert('Revisa el password ingresado')
           return;
         }
       }

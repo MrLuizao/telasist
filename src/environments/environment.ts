@@ -17,6 +17,9 @@ export const environment = {
   serverUrl: '/api',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR'],
+
+  mapBoxKey: 'pk.eyJ1IjoibHVpc3ZyIiwiYSI6ImNraHF5YnZ5azI3ZzAyeXBlMjM0ZXU1NjkifQ._vRn21V-h5lFk-viCY6lYw'
+
 };
 
 /*
